@@ -1,0 +1,81 @@
+|-------------------------------------------------------------------------|
+|                                                                         |
+| HHH   HHH DDDDDDDD  MMM    MMM RRRRRRR     EEEEEEEE XXX   XXX TTTTTTTTT |
+| HHH   HHH DDDDDDDDD MMM    MMM RRRRRRRR    EEEEEEEE XXX   XXX TTTTTTTTT |
+| HHH   HHH DDD   DDD MMM    MMM RRR   RRR   EEE       XXX XXX  TT TTT TT |
+| HHH   HHH DDD   DDD MMMM  MMMM RRR   RRR   EEE       XXX XXX  T  TTT  T |
+| HHHHHHHHH DDD   DDD MMMMMMMMMM RRRRRRRR    EEEEEE     XXXXX      TTT    |
+| HHHHHHHHH DDD   DDD MMMMMMMMMM RRRRRRR     EEEEEE     XXXXX      TTT    |
+| HHH   HHH DDD   DDD MMM    MMM RRRRRRR     EEE       XXX XXX     TTT    |
+| HHH   HHH DDD   DDD MMM    MMM RRR  RRR    EEE       XXX XXX     TTT    |
+| HHH   HHH DDDDDDDDD MMM    MMM RRR   RRR   EEEEEEEE XXX   XXX    TTT    |
+| HHH   HHH DDDDDDDD  MMM    MMM RRR   RRR   EEEEEEEE XXX   XXX    TTT    |
+|                                                                         |
+|-------------------------------------------------------------------------|
+
+Table 1: Properties of HDMR_EXT emulator, y = f(x), for randomized training data set of 10 bootstrap trials
+===============================================
+Emulator    # terms   # coefs.   RMSE     ns   
+-----------------------------------------------
+   1            3        60      0.781   162 
+   2            3        60      0.955   162 
+   3            4       108      0.701   162 
+   4            3        60      1.010   162 
+   5            3        60      0.776   162 
+   6            3        60      0.724   162 
+   7            4        66      0.869   162 
+   8            3        60      0.869   162 
+   9            3        60      0.600   162 
+   10           4        66      0.594   162 
+===============================================
+
+
+
+Table 2: HDMR_EXT results for all model components using 10 bootstrap trials
+============================================================================================================ 
+                                         ( = JOINT DETERMINATION )                                    
+                  ------------------------------------------------------------------------------------------ 
+Term       Order        S^a             S^b              S               ST          V(i)/V(Y)     #select   
+------------------------------------------------------------------------------------------------------------ 
+x1           1      0.301 (±0.05)   0.003 (±0.05)   0.304 (±0.03)   0.556 (±0.03)   0.304 (±0.03)    10
+x2           1      0.424 (±0.05)   0.003 (±0.05)   0.426 (±0.03)   0.455 (±0.05)   0.426 (±0.03)    10
+x3           1      0.012 (±0.03)   0.001 (±0.01)   0.013 (±0.03)   0.267 (±0.05)   0.013 (±0.03)    2 
+x1/x2        2      0.036 (±0.05)  -0.030 (±0.05)   0.006 (±0.01)                   0.006 (±0.01)    0 
+x1/x3        2      0.245 (±0.05)  -0.013 (±0.04)   0.231 (±0.05)                   0.231 (±0.05)    10
+x2/x3        2      0.033 (±0.05)  -0.025 (±0.07)   0.007 (±0.03)                   0.007 (±0.03)    1 
+x1/x2/x3     3      0.019 (±0.01)  -0.003 (±0.01)   0.016 (±0.01)                   0.016 (±0.01)    0 
+------------------------------------------------------------------------------------------------------------ 
+sum                 1.069 (±0.18)  -0.065 (±0.18)   1.003 (±0.00)                   1.003 (±0.00) 
+============================================================================================================ 
+ S^a: Structural sensitivity index of individual terms
+ S^b: Correlative sensitivity index of individual terms
+ S: Total sensitivity index of individual terms
+ ST: Total sensitivity index
+ (±): 95% confidence intervals derived from bootstrapping
+ V(i)/V_Y: Relative contribution of each term to model output variance ( = var(Y))
+ #select: Number of bootstrap trials that identifies respective term as significant
+
+
+
+Table 3: HDMR_EXT results for significant model components only using 10 bootstrap trials
+============================================================================================================ 
+                                         ( = JOINT DETERMINATION )                                    
+                  ------------------------------------------------------------------------------------------ 
+Term       Order        S^a             S^b              S               ST          V(i)/V(Y)     #select   
+------------------------------------------------------------------------------------------------------------ 
+x1           1      0.301 (±0.05)   0.003 (±0.05)   0.304 (±0.03)   0.556 (±0.03)   0.304 (±0.03)    10
+x2           1      0.424 (±0.05)   0.003 (±0.05)   0.426 (±0.03)   0.455 (±0.05)   0.426 (±0.03)    10
+x3           1      0.012 (±0.03)   0.001 (±0.01)   0.013 (±0.03)   0.267 (±0.05)   0.013 (±0.03)    2 
+x1/x3        2      0.245 (±0.05)  -0.013 (±0.04)   0.231 (±0.05)                   0.231 (±0.05)    10
+x2/x3        2      0.033 (±0.05)  -0.025 (±0.07)   0.007 (±0.03)                   0.007 (±0.03)    1 
+------------------------------------------------------------------------------------------------------------ 
+sum                 1.069 (±0.18)  -0.065 (±0.18)   1.003 (±0.00)                   1.003 (±0.00) 
+============================================================================================================ 
+ S^a: Structural sensitivity index of individual terms
+ S^b: Correlative sensitivity index of individual terms
+ S: Total sensitivity index of individual terms
+ ST: Total sensitivity index
+ (±): 95% confidence intervals derived from bootstrapping
+ V(i)/V_Y: Relative contribution of each term to model output variance ( = var(Y))
+ #select: Number of bootstrap trials that identifies respective term as significant
+
